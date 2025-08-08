@@ -1,0 +1,107 @@
+/* 전체 게시판을 감싸는 컨테이너 */
+.board-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 게시판 헤더 (제목 + 글쓰기 버튼) */
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 20px;
+}
+
+.board-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.write-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.write-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 게시글 목록 테이블 */
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.post-table th,
+.post-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.post-table thead {
+    background-color: #f8f9fa;
+}
+
+.post-table th {
+    font-weight: 700;
+    color: #495057;
+}
+
+/* 각 컬럼 너비 및 정렬 조정 */
+.col-num { width: 8%; }
+.col-title { width: 50%; text-align: left; }
+.col-author { width: 15%; }
+.col-date { width: 15%; }
+.col-views { width: 12%; }
+
+.post-table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+.post-table td a:hover {
+    text-decoration: underline;
+}
+
+.no-data {
+    padding: 50px 0;
+    color: #868e96;
+}
+
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination a {
+    color: #495057;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #e9ecef;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
