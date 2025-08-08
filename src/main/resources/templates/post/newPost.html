@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <!-- 페이지 제목을 게시글 제목으로 동적으로 설정 -->
+  <!-- 구글 폰트 (Noto Sans KR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div class="form-container">
+  <div class="form-header">
+    <h1>새 글 작성</h1>
+  </div>
+
+  <form th:action="@{/posts}" method="post">
+
+    <div class="form-group">
+      <label for="title">제목</label>
+      <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
+    </div>
+
+    <div class="form-group">
+      <label for="author">작성자</label>
+      <input type="text" id="author" name="nickname" value="로그인 사용자" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="content">내용</label>
+      <textarea id="content" name="content" rows="15" placeholder="내용을 입력하세요" required></textarea>
+    </div>
+
+    <div class="button-container">
+      <a th:href="@{/}" class="btn btn-cancel">취소</a>
+      <button type="submit" class="btn btn-submit">등록</button>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

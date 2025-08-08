@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- 페이지 제목을 게시글 제목으로 동적으로 설정 -->
+    <title th:text="${post.title}">게시글 상세</title>
+    <!-- 구글 폰트 (Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
+</head>
+<body>
+
+<div class="post-container">
+
+    <!-- 게시글 헤더: 제목과 메타 정보 -->
+    <div class="post-header">
+        <h1 th:text="${post.title}">게시글 제목이 여기에 표시됩니다.</h1>
+        <div class="post-meta">
+            <span class="author" th:text="${post.nickname}">작성자 닉네임</span>
+            <span class="separator">|</span>
+            <span class="date" th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">2025.08.08 18:46</span>
+            <span class="separator">|</span>
+            <span class="views">조회수 <span th:text="${post.viewCount}">123</span></span>
+        </div>
+    </div>
+
+    <!-- 구분선 -->
+    <hr class="divider">
+
+    <!-- 게시글 본문 -->
+    <div class="post-content" th:text="${post.content}">
+        <p>게시글 내용이 여기에 들어갑니다.</p>
+        <p>여러 줄의 내용도 문제없이 표시됩니다.</p>
+    </div>
+
+    <!-- 구분선 -->
+    <hr class="divider">
+
+    <!-- 버튼 영역 -->
+    <div class="button-container">
+        <!--
+            [나중 기능] 현재 로그인한 유저와 게시글 작성자가 같을 때만 수정/삭제 버튼 보이기
+            <div th:if="${loginUser != null and loginUser.id == post.userId}">
+                <a th:href="@{/posts/{id}/edit(id=${post.id})}" class="btn btn-edit">수정</a>
+                <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="btn btn-delete">삭제</a>
+            </div>
+        -->
+        <a th:href="@{/}" class="btn btn-list">목록으로</a>
+    </div>
+
+</div>
+
+</body>
+</html>

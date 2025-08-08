@@ -5,6 +5,7 @@ import com.kimje.springboard.post.dto.PostResponseDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface PostRepository {
@@ -14,4 +15,8 @@ public interface PostRepository {
     List<PostResponseDTO> findAll();
 
     void save(Post post);
+
+    List<PostResponseDTO> findAllWithPagination(Map<String, Object> params);
+
+    int getTotalPostCount();
 }

@@ -1,6 +1,5 @@
 package com.kimje.springboard.post.controller;
 
-import com.kimje.springboard.post.domain.Post;
 import com.kimje.springboard.post.dto.PostRequestDTO;
 import com.kimje.springboard.post.dto.PostResponseDTO;
 import com.kimje.springboard.post.service.PostService;
@@ -28,13 +27,18 @@ public class PostController {
     public String getPost(Model model , @PathVariable Long postId) {
         PostResponseDTO post = postService.getPost(postId);
         model.addAttribute("post" , post);
-        return "post-details";
+        return "post/detail";
+    }
+
+    @GetMapping("/new")
+    public String newPostForm() {
+        return "post/newPost"; // templates/posts/post-form.html 을 렌더링
     }
 
     @PostMapping
     public String createPost(@ModelAttribute PostRequestDTO postRequestDTO) {
         postService.createPost(postRequestDTO);
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 

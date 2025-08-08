@@ -1,0 +1,97 @@
+/* 전체 폼을 감싸는 컨테이너 */
+.form-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 각 입력 필드를 묶는 그룹 */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 입력 필드 (input, textarea) 공통 스타일 */
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 입력 필드 포커스 시 스타일 */
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* 읽기 전용 필드 스타일 */
+.form-group input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+
+/* 버튼 컨테이너 */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+    gap: 10px; /* 버튼 사이 간격 */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: #fff;
+}
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+}
+.btn-submit:hover {
+    background-color: #0056b3;
+}
