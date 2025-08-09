@@ -40,7 +40,16 @@ public class PostService {
         params.put("offset" , offset);
         List<PostResponseDTO> postList = postRepository.findAllWithPagination(params);
 
-        return new PagingResponseDTO<>(postList, pageNumber, totalPages);
+        int pageBlockSize = 5; // 한 번에 보여줄 페이지 번호 개수
+        // 페이지 번호를 0부터 시작 하는 인덱스 로 맞추는 로직
+        // 0~4 는 1~5 페이지 1 그룹 , 5~9 는 6~10 페이지 2 그룹
+        // 예시로 현재 페이지가 7 이라면 7-1 = 6
+        // 6 / pageBlockSize = 1.2 -> index = 1
+        // (1 * pageBlockSize) + 1 = 6
+        int startPage = (int) Math.floor((double)(pageNumber - 1) / pageBlockSize) * pageBlockSize + 1;
+        int endPage = Math.min(startPage + pageBlockSize - 1, totalPages);
+
+        return new PagingResponseDTO<>(postList, pageNumber, totalPages , startPage, endPage);
     }
 
     public PostResponseDTO getPost(Long postId) {
@@ -51,7 +60,7 @@ public class PostService {
         Post post = new Post();
         post.setUserId(postRequestDTO.getUserId());
         post.setTitle(postRequestDTO.getTitle());
-        post.setContent(post.getContent());
+        post.setContent(postRequestDTO.getContent());
 
         postRepository.save(post);
     }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class="header">
+  <div class="nav">
+    <h2>Spring Boot 프로젝트</h2>
+    <div class="user-area">
+      <div class="user-contents">
+        <ul>
+          <a th:href="@{/login}">
+            <li>로그인</li>
+          </a>
+          <a th:href="@{/users/info}">
+            <li>마이페이지</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-container">
+  로그인
+</div>
+
+
+</body>
+</html>

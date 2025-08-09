@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/posts")
+@RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
 
@@ -23,16 +23,17 @@ public class PostController {
         model.addAttribute("posts" , postList);
         return "home";
     }
+
+    @GetMapping("/new")
+    public String newPostForm() {
+        return "post/newPost"; // templates/posts/post-form.html 을 렌더링
+    }
+
     @GetMapping("/{postId}")
     public String getPost(Model model , @PathVariable Long postId) {
         PostResponseDTO post = postService.getPost(postId);
         model.addAttribute("post" , post);
         return "post/detail";
-    }
-
-    @GetMapping("/new")
-    public String newPostForm() {
-        return "post/newPost"; // templates/posts/post-form.html 을 렌더링
     }
 
     @PostMapping

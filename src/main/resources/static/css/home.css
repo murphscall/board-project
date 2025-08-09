@@ -1,4 +1,27 @@
 /* 전체 게시판을 감싸는 컨테이너 */
+
+
+.header{
+    max-width: 1000px;
+    margin: 50px auto;
+}
+.header h2{
+    color: darkseagreen;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .nav ul {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+.header .nav ul li {
+    margin-left: 8px;
+}
 .board-container {
     max-width: 1000px;
     margin: 50px auto;

@@ -10,12 +10,28 @@
     <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 <body>
-
+<div class="header">
+    <div class="nav">
+        <h2>Spring Boot 프로젝트</h2>
+        <div class="user-area">
+            <div class="user-contents">
+                <ul>
+                    <a th:href="@{/login}">
+                        <li>로그인</li>
+                    </a>
+                    <a th:href="@{/users/info}">
+                        <li>마이페이지</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="board-container">
 
     <div class="board-header">
         <h1>자유 게시판</h1>
-        <a th:href="@{/api/posts/new}" class="write-btn">글쓰기</a>
+        <a th:href="@{/posts/new}" class="write-btn">글쓰기</a>
     </div>
 
     <table class="post-table">
@@ -32,7 +48,7 @@
         <tr th:each="post : ${pagingResponse.content}">
             <td th:text="${post.id}">1</td>
             <td>
-                <a th:href="@{/api/posts/{id}(id=${post.id})}" th:text="${post.title}">게시글 제목</a>
+                <a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}">게시글 제목</a>
             </td>
             <td th:text="${post.nickname}"></td>
             <td th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd')}"></td>
@@ -42,15 +58,18 @@
     </table>
 
     <div class="pagination" th:if="${pagingResponse.totalPages > 0}">
-        <!-- 첫 번째 Page 라면  -->
-        <a th:if="${!pagingResponse.isFirst}" th:href="@{/(page=${pagingResponse.pageNumber - 1})}">&laquo;</a>
-        <th:block th:each="pageNumber : ${#numbers.sequence(1, pagingResponse.totalPages)}">
+        <!-- 이전 -->
+        <a th:if="${pagingResponse.startPages > 1}" th:href="@{/(page=${pagingResponse.startPages - 1})}">&laquo;</a>
+
+        <th:block th:each="pageNumber : ${#numbers.sequence(pagingResponse.startPages, pagingResponse.endPages)}">
             <a th:href="@{/(page=${pageNumber})}"
                th:text="${pageNumber}"
                th:classappend="${pageNumber == pagingResponse.pageNumber} ? 'active'">
             </a>
         </th:block>
-        <a th:if="${!pagingResponse.isLast}" th:href="@{/(page=${pagingResponse.pageNumber + 1})}">&raquo;</a>
+        <!-- 다음 -->
+        <a th:if="${pagingResponse.endPages < pagingResponse.totalPages}"
+           th:href="@{/(page=${pagingResponse.endPages + 1})}">&raquo;</a>
     </div>
 
 </div>

@@ -54,10 +54,26 @@
             -- [핵심] LIMIT와 OFFSET 절 추가
             LIMIT #{limit} OFFSET #{offset}
     </select>
+
+    <!-- 총 게시물 갯수 집계 -->
     <select id="getTotalPostCount" parameterType="int" resultType="int" >
         SELECT COUNT(*) FROM posts;
     </select>
 
+
+    <!-- 게시물 등록 -->
+    <insert id="save" parameterType="com.kimje.springboard.post.dto.PostResponseDTO">
+        INSERT INTO posts (
+            user_id,
+            title,
+            content
+        )
+        VALUES (
+                   #{userId},
+                   #{title},
+                   #{content}
+               )
+    </insert>
 
     <!-- 기타 쿼리 -->
 </mapper>
