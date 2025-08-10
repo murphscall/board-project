@@ -1,8 +1,8 @@
-package com.kimje.springboard.post.controller;
+package com.kimje.springboard.board.controller;
 
-import com.kimje.springboard.post.dto.PostRequestDTO;
-import com.kimje.springboard.post.dto.PostResponseDTO;
-import com.kimje.springboard.post.service.PostService;
+import com.kimje.springboard.board.dto.PostRequestDTO;
+import com.kimje.springboard.board.dto.PostResponseDTO;
+import com.kimje.springboard.board.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

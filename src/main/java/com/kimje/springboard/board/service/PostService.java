@@ -1,18 +1,16 @@
-package com.kimje.springboard.post.service;
+package com.kimje.springboard.board.service;
 
-import com.kimje.springboard.post.domain.Post;
-import com.kimje.springboard.post.dto.PagingResponseDTO;
-import com.kimje.springboard.post.dto.PostRequestDTO;
-import com.kimje.springboard.post.dto.PostResponseDTO;
-import com.kimje.springboard.post.repository.PostRepository;
+import com.kimje.springboard.board.model.Post;
+import com.kimje.springboard.board.dto.PagingResponseDTO;
+import com.kimje.springboard.board.dto.PostRequestDTO;
+import com.kimje.springboard.board.dto.PostResponseDTO;
+import com.kimje.springboard.board.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

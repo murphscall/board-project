@@ -1,7 +1,7 @@
-package com.kimje.springboard.post.repository;
+package com.kimje.springboard.board.repository;
 
-import com.kimje.springboard.post.domain.Post;
-import com.kimje.springboard.post.dto.PostResponseDTO;
+import com.kimje.springboard.board.model.Post;
+import com.kimje.springboard.board.dto.PostResponseDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

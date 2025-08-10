@@ -1,4 +1,4 @@
-package com.kimje.springboard.post.dto;
+package com.kimje.springboard.board.dto;
 
 import lombok.Getter;
 
